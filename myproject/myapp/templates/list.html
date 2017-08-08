@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>上传图片</title>
+        <style type="text/css">
+            .what{
+                padding:10px; width:500px; height:600px;
+                border: 2px solid #000000;
+                -moz-border-radius: 15px;
+                -webkit-border-radius: 15px;
+                border-radius:15px;
+                margin: 0 auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                }
+        </style>
+    </head>
+
+    <body>
+
+        <form action="{% url "list" %}" method="post" enctype="multipart/form-data">
+        <div class="what">
+            {% csrf_token %}
+            <p>{{ form.docfile.help_text }}</p>
+            <p><label>上传图片</label>
+                <input type="file" name = "file"  id="file">
+            </p>
+
+             <p><label>上传图片</label>
+                 <input type="file" name = "file1"  id="file1">
+             </p>
+
+            <p><input type="submit" value="Upload"/></p>
+
+            <p><img src="{{ path }}" /></p>
+
+        </div>
+
+    </body>
+
+</html>
